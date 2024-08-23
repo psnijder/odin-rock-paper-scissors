@@ -32,3 +32,38 @@ function getHumanChoice() {
 
 let computerScore = 0;
 let humanScore = 0;
+
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice === humanChoice) {
+        alert("Tie!");
+    } else if (computerChoice === "rock") {
+        if (humanChoice === "scissors") {
+            alert("Computer picked rock and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked rock. Human won!");
+            humanScore++;
+        }
+    } else if (computerChoice === "paper") {
+        if (humanChoice === "rock") {
+            alert("Computer picked paper and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked paper. Human won!");
+            humanScore++;
+        }
+    } else if (computerChoice === "scissors") {
+        if (humanChoice === "paper") {
+            alert("Computer picked scissors and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked scissors. Human won!");
+            humanScore++;
+        }
+    }
+}
+
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+playRound(computerSelection, humanSelection);
