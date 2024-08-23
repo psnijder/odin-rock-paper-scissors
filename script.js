@@ -17,4 +17,15 @@ function getComputerChoice() {
     return choice;
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    let humanChoice;
+    while (true) {
+        humanChoice = prompt("Choose 'Rock', 'Paper' or 'Scissors'.").toLowerCase();
+
+        if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+            return humanChoice;
+        }
+
+    alert("Invalid input, please try again.")
+    }
+}
