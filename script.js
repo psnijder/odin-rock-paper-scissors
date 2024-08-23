@@ -29,3 +29,6 @@ function getHumanChoice() {
     alert("Invalid input, please try again.")
     }
 }
+
+let computerScore = 0;
+let humanScore = 0;
