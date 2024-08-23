@@ -1,20 +1,20 @@
 function getComputerChoice() {
     Math.floor(Math.random() * 3);
 
-    let choice;
+    let computerChoice;
     switch(Math.floor(Math.random() * 3)) {
         case 0:
-            choice = "Rock";
+            computerChoice = "Rock";
             break;
         case 1:
-            choice = "Paper";
+            computerChoice = "Paper";
             break;
         case 2:
-            choice = "Scissors";
+            computerChoice = "Scissors";
             break;
     }
 
-    return choice;
+    return computerChoice;
 }
 
 function getHumanChoice() {
