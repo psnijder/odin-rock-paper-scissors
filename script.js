@@ -30,40 +30,54 @@ function getHumanChoice() {
     }
 }
 
-let computerScore = 0;
-let humanScore = 0;
+function playGame() {
+    let computerScore = 0;
+    let humanScore = 0;
 
-function playRound(computerChoice, humanChoice) {
-    if (computerChoice === humanChoice) {
-        alert("Tie!");
-    } else if (computerChoice === "rock") {
-        if (humanChoice === "scissors") {
-            alert("Computer picked rock and won!");
-            computerScore++;
-        } else {
-            alert("Computer picked rock. Human won!");
-            humanScore++;
+    for (let round = 0; round < 5; round++) {
+        let computerSelection = getComputerChoice();
+        let humanSelection = getHumanChoice();
+
+        function playRound(computerChoice, humanChoice) {
+            if (computerChoice === humanChoice) {
+                alert("Tie!");
+            } else if (computerChoice === "rock") {
+                if (humanChoice === "scissors") {
+                    alert("Computer picked rock and won!");
+                    computerScore++;
+                } else {
+                    alert("Computer picked rock. Human won!");
+                    humanScore++;
+                }
+            } else if (computerChoice === "paper") {
+                if (humanChoice === "rock") {
+                    alert("Computer picked paper and won!");
+                    computerScore++;
+                } else {
+                    alert("Computer picked paper. Human won!");
+                    humanScore++;
+                }
+            } else if (computerChoice === "scissors") {
+                if (humanChoice === "paper") {
+                    alert("Computer picked scissors and won!");
+                    computerScore++;
+                } else {
+                    alert("Computer picked scissors. Human won!");
+                    humanScore++;
+                }
+            }
         }
-    } else if (computerChoice === "paper") {
-        if (humanChoice === "rock") {
-            alert("Computer picked paper and won!");
-            computerScore++;
-        } else {
-            alert("Computer picked paper. Human won!");
-            humanScore++;
-        }
-    } else if (computerChoice === "scissors") {
-        if (humanChoice === "paper") {
-            alert("Computer picked scissors and won!");
-            computerScore++;
-        } else {
-            alert("Computer picked scissors. Human won!");
-            humanScore++;
-        }
+
+        playRound(computerSelection, humanSelection);
+    }
+
+    if (computerScore === humanScore) {
+        return(alert(`The final score is: \nComputer: ${computerScore},\nHuman: ${humanScore}.\nThe game is a tie!`));
+    } else if (computerScore > humanScore) {
+        return(alert(`The final score is: \nComputer: ${computerScore},\nHuman: ${humanScore}.\nComputer won!`));
+    } else if (humanScore > computerScore) {
+        return(alert(`The final score is: \nComputer: ${computerScore},\nHuman: ${humanScore}.\nHuman won!`));
     }
 }
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
-playRound(computerSelection, humanSelection);
+playGame();
