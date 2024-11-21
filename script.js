@@ -18,7 +18,8 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice;
+    let humanChoice = "rock";
+    
     while (true) {
         humanChoice = prompt("Choose 'Rock', 'Paper' or 'Scissors'.").toLowerCase();
 
@@ -30,43 +31,44 @@ function getHumanChoice() {
     }
 }
 
-function playGame() {
-    let computerScore = 0;
-    let humanScore = 0;
+let computerScore = 0;
+let humanScore = 0;
 
+function playRound(computerChoice, humanChoice) {
+    if (computerChoice === humanChoice) {
+        alert("Tie!");
+    } else if (computerChoice === "rock") {
+        if (humanChoice === "scissors") {
+            alert("Computer picked rock and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked rock. Human won!");
+            humanScore++;
+        }
+    } else if (computerChoice === "paper") {
+        if (humanChoice === "rock") {
+            alert("Computer picked paper and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked paper. Human won!");
+            humanScore++;
+        }
+    } else if (computerChoice === "scissors") {
+        if (humanChoice === "paper") {
+            alert("Computer picked scissors and won!");
+            computerScore++;
+        } else {
+            alert("Computer picked scissors. Human won!");
+            humanScore++;
+        }
+    }
+}
+
+/*
+function playGame() {
     for (let round = 0; round < 5; round++) {
         let computerSelection = getComputerChoice();
         let humanSelection = getHumanChoice();
-
-        function playRound(computerChoice, humanChoice) {
-            if (computerChoice === humanChoice) {
-                alert("Tie!");
-            } else if (computerChoice === "rock") {
-                if (humanChoice === "scissors") {
-                    alert("Computer picked rock and won!");
-                    computerScore++;
-                } else {
-                    alert("Computer picked rock. Human won!");
-                    humanScore++;
-                }
-            } else if (computerChoice === "paper") {
-                if (humanChoice === "rock") {
-                    alert("Computer picked paper and won!");
-                    computerScore++;
-                } else {
-                    alert("Computer picked paper. Human won!");
-                    humanScore++;
-                }
-            } else if (computerChoice === "scissors") {
-                if (humanChoice === "paper") {
-                    alert("Computer picked scissors and won!");
-                    computerScore++;
-                } else {
-                    alert("Computer picked scissors. Human won!");
-                    humanScore++;
-                }
-            }
-        }
 
         playRound(computerSelection, humanSelection);
     }
@@ -79,5 +81,4 @@ function playGame() {
         return(alert(`The final score is: \nComputer: ${computerScore},\nHuman: ${humanScore}.\nHuman won!`));
     }
 }
-
-playGame();
+*/
