@@ -36,31 +36,33 @@ function getHumanChoice() {
 let computerScore = 0;
 let humanScore = 0;
 
+const results = document.getElementById("results");
+
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        alert("Tie!");
+        results.textContent = "Tie!";
     } else if (computerChoice === "rock") {
         if (humanChoice === "scissors") {
-            alert("Computer picked rock and won!");
+            results.textContent = "Computer picked rock and won!";
             computerScore++;
         } else {
-            alert("Computer picked rock. Human won!");
+            results.textContent = "Computer picked rock. Human won!";
             humanScore++;
         }
     } else if (computerChoice === "paper") {
         if (humanChoice === "rock") {
-            alert("Computer picked paper and won!");
+            results.textContent = "Computer picked paper and won!";
             computerScore++;
         } else {
-            alert("Computer picked paper. Human won!");
+            results.textContent = "Computer picked paper. Human won!";
             humanScore++;
         }
     } else if (computerChoice === "scissors") {
         if (humanChoice === "paper") {
-            alert("Computer picked scissors and won!");
+            results.textContent = "Computer picked scissors and won!";
             computerScore++;
         } else {
-            alert("Computer picked scissors. Human won!");
+            results.textContent = "Computer picked scissors. Human won!";
             humanScore++;
         }
     }
