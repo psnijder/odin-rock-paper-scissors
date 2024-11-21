@@ -17,6 +17,7 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+/*
 function getHumanChoice() {
     let humanChoice = "rock";
     
@@ -30,6 +31,7 @@ function getHumanChoice() {
     alert("Invalid input, please try again.")
     }
 }
+*/
 
 let computerScore = 0;
 let humanScore = 0;
@@ -82,3 +84,19 @@ function playGame() {
     }
 }
 */
+
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", () => {
+    playRound(getComputerChoice(), "rock");
+    });
+
+paperButton.addEventListener("click", () => {
+    playRound(getComputerChoice(), "paper");
+    });
+
+scissorsButton.addEventListener("click", () => {
+    playRound(getComputerChoice(), "scissors");
+    });
