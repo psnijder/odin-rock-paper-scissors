@@ -37,33 +37,54 @@ let computerScore = 0;
 let humanScore = 0;
 
 const results = document.getElementById("results");
+const score = document.getElementById("score");
+const displayPlayerScore = document.getElementById("playerScore");
+const displayComputerScore = document.getElementById("computerScore");
 
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        results.textContent = "Tie!";
+        results.textContent = "Round is a tie!";
     } else if (computerChoice === "rock") {
         if (humanChoice === "scissors") {
-            results.textContent = "Computer picked rock and won!";
+            results.textContent = "Computer picked rock and won round!";
             computerScore++;
+            displayComputerScore.textContent = computerScore;
         } else {
-            results.textContent = "Computer picked rock. Human won!";
+            results.textContent = "Computer picked rock. Human won round!";
             humanScore++;
+            displayPlayerScore.textContent = humanScore;
         }
     } else if (computerChoice === "paper") {
         if (humanChoice === "rock") {
-            results.textContent = "Computer picked paper and won!";
+            results.textContent = "Computer picked paper and won round!";
             computerScore++;
+            displayComputerScore.textContent = computerScore;
         } else {
-            results.textContent = "Computer picked paper. Human won!";
+            results.textContent = "Computer picked paper. Human won round!";
             humanScore++;
+            displayPlayerScore.textContent = humanScore;
         }
     } else if (computerChoice === "scissors") {
         if (humanChoice === "paper") {
-            results.textContent = "Computer picked scissors and won!";
+            results.textContent = "Computer picked scissors and won round!";
             computerScore++;
+            displayComputerScore.textContent = computerScore;
         } else {
-            results.textContent = "Computer picked scissors. Human won!";
+            results.textContent = "Computer picked scissors. Human won round!";
             humanScore++;
+            displayPlayerScore.textContent = humanScore;
+        }
+    }
+
+    if (computerScore == 5 || humanScore == 5) {
+        rockButton.remove();
+        paperButton.remove();
+        scissorsButton.remove();
+
+        if (computerScore == 5) {
+            results.textContent = "Game is over. Computer won!";
+        } else {
+            results.textContent = "Game is over. Player won!";
         }
     }
 }
